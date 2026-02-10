@@ -225,7 +225,6 @@ export default function Home() {
                 icon: TrendingUp,
               },
             ].map((item, index) => {
-              const Icon = item.icon;
               return (
                 <div key={index} className="relative">
                   <div className="flex flex-col items-center text-center">

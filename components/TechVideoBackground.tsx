@@ -1,6 +1,23 @@
 'use client';
 
+import { useState } from 'react';
+
+// Pre-generate random particles to maintain React purity
+function generateParticles() {
+  return Array.from({ length: 20 }).map((_, i) => ({
+    id: i,
+    left: Math.random() * 100,
+    top: Math.random() * 100,
+    duration: 6 + Math.random() * 8,
+    opacity: Math.random() * 0.6 + 0.3,
+    delay: Math.random() * 3,
+  }));
+}
+
 export function TechVideoBackground() {
+  // Use lazy initialization to generate particles only once
+  const [particles] = useState(generateParticles);
+
   return (
     <div className="absolute inset-0 w-full h-full overflow-hidden bg-black">
       {/* Matrix-style code rain effect */}
@@ -53,16 +70,16 @@ export function TechVideoBackground() {
 
       {/* Floating data particles */}
       <div className="absolute inset-0">
-        {Array.from({ length: 20 }).map((_, i) => (
+        {particles.map((particle) => (
           <div
-            key={`particle-${i}`}
+            key={`particle-${particle.id}`}
             className="absolute w-1 h-1 bg-cyan-400 rounded-full"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animation: `float ${6 + Math.random() * 8}s ease-in-out infinite`,
-              opacity: Math.random() * 0.6 + 0.3,
-              animationDelay: `${Math.random() * 3}s`,
+              left: `${particle.left}%`,
+              top: `${particle.top}%`,
+              animation: `float ${particle.duration}s ease-in-out infinite`,
+              opacity: particle.opacity,
+              animationDelay: `${particle.delay}s`,
             }}
           />
         ))}

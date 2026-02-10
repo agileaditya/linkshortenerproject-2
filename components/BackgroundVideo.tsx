@@ -21,7 +21,6 @@ const overlayMap = {
 
 export function BackgroundVideo({
   videoSrc,
-  fallbackSrc,
   children,
   className = '',
   overlayOpacity = 'medium',
@@ -29,11 +28,9 @@ export function BackgroundVideo({
   useTechAnimation = true,
 }: BackgroundVideoProps) {
   const [showVideo, setShowVideo] = useState(true);
-  const [videoLoaded, setVideoLoaded] = useState(false);
 
   const handleVideoCanPlay = () => {
     console.log('✅ Video loaded successfully');
-    setVideoLoaded(true);
   };
 
   const handleVideoError = () => {

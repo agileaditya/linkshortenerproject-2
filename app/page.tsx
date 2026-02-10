@@ -3,6 +3,7 @@
 import { useAuth } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { SignedOut, SignInButton, SignUpButton } from "@clerk/nextjs";
+import { shadcn } from "@clerk/themes";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BackgroundVideo } from "@/components/BackgroundVideo";
@@ -121,13 +122,13 @@ export default function Home() {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 mt-8">
-              <SignUpButton mode="modal">
+              <SignUpButton mode="modal" appearance={{ baseTheme: shadcn }}>
                 <Button size="lg" className="rounded-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700">
                   Get Started Free
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </SignUpButton>
-              <SignInButton mode="modal">
+              <SignInButton mode="modal" appearance={{ baseTheme: shadcn }}>
                 <Button size="lg" variant="outline" className="rounded-full border-cyan-500/50 text-white hover:bg-cyan-500/10">
                   Sign In
                 </Button>
@@ -302,13 +303,13 @@ export default function Home() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <SignUpButton mode="modal">
+            <SignUpButton mode="modal" appearance={{ baseTheme: shadcn }}>
               <Button size="lg" className="rounded-full bg-white text-blue-600 hover:bg-blue-50 font-semibold">
                 Start for Free
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </SignUpButton>
-            <SignInButton mode="modal">
+            <SignInButton mode="modal" appearance={{ baseTheme: shadcn }}>
               <Button size="lg" variant="outline" className="rounded-full border-white text-white hover:bg-white/10 font-semibold">
                 Sign In
               </Button>

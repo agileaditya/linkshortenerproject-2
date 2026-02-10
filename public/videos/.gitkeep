@@ -1,0 +1,8 @@
+import { create_directory } from 'create_directory';
+
+// Placeholder note: This directory should contain your video files
+// File structure needed:
+// public/
+//   videos/
+//     tech-workspace.mp4
+//     analytics-dashboard.mp4
